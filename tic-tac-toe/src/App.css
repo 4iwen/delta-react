@@ -73,9 +73,15 @@
 }
 
 .x {
-    color: #0000ff;
+    color: #650044;
+    font-weight: bolder;
 }
 
 .o {
-    color: #ff0000;
+    color: #be007b;
+    font-weight: bolder;
+}
+
+.reset-button {
+    background: #342c2c;
 }
