@@ -8,6 +8,7 @@ interface ResultProps {
     setBoard: (board: string[] | null[]) => void;
     setNextPlayer: (nextPlayer: string) => void;
     setFinished: (finished: boolean) => void;
+    setMoves: (moves: string[][]) => void;
 }
 
 function Result(props: ResultProps): ReactElement {
@@ -20,6 +21,7 @@ function Result(props: ResultProps): ReactElement {
                 props.setBoard(Array(BOARD_SIZE * BOARD_SIZE).fill(null))
                 props.setNextPlayer("X")
                 props.setFinished(false)
+                props.setMoves([])
             }}>Reset
             </button>
         </div>

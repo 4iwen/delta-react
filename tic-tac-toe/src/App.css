@@ -73,15 +73,49 @@
 }
 
 .x {
-    color: #650044;
+    color: #5E0F2E;
     font-weight: bolder;
 }
 
 .o {
-    color: #be007b;
+    color: #B71954;
     font-weight: bolder;
 }
 
 .reset-button {
-    background: #342c2c;
+    background: #1B1119;
+}
+
+.goto-button {
+    background: #1B1119;
+    margin: 0.1em 0 0 1em;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.tic-tac-toe-header {
+    font-size: 75px;
+    font-weight: 1000;
+    background: -webkit-linear-gradient(60deg, #5E0F2E 0%, #B71954 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.move {
+    margin: 0;
+    padding: 0;
+}
+
+.move-list {
+    margin-top: 200px;
+    margin-left: 100px;
+}
+
+.moves-header {
+    padding-left: 50px;
+    padding-right: 50px;
 }

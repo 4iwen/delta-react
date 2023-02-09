@@ -11,6 +11,7 @@ function App() {
     const [nextPlayer, setNextPlayer] = useState("X");
     const [finished, setFinished] = useState(false);
     const [winner, setWinner] = useState(null);
+    const [moves, setMoves] = useState([Array(BOARD_SIZE * BOARD_SIZE).fill(null)]);
 
     function setCell(index: number) {
         const newBoard = [...board];
@@ -28,14 +29,31 @@ function App() {
         });
     }
 
+    function goToMove(index: number) {
+        setBoard(moves[index]);
+        setNextPlayer(index % 2 === 0 ? "X" : "O");
+        setFinished(false);
+        setWinner(null);
+        setMoves(moves.slice(0, index + 1));
+    }
+
+    function addMove() {
+        const newMove = [...board];
+        moves.push(newMove);
+    }
+
     return (
         <div className="App">
-            <h1>Tic Tac Toe</h1>
-            <Board board={board} setCell={setCell} nextPlayer={nextPlayer} setNextPlayer={setNextPlayer}
-                   checkWinner={checkWinner} finished={finished}/>
-            <Result nextPlayer={nextPlayer} finished={finished} winner={winner} setBoard={setBoard}
-                    setNextPlayer={setNextPlayer} setFinished={setFinished}/>
-            <MoveList/>
+            <div className="game">
+                <div>
+                    <h1 className="tic-tac-toe-header">Tic Tac Toe</h1>
+                    <Board board={board} setCell={setCell} nextPlayer={nextPlayer} setNextPlayer={setNextPlayer}
+                           checkWinner={checkWinner} finished={finished} addMove={addMove}/>
+                    <Result nextPlayer={nextPlayer} finished={finished} winner={winner} setBoard={setBoard}
+                            setNextPlayer={setNextPlayer} setFinished={setFinished} setMoves={setMoves}/>
+                </div>
+                <MoveList move_count={moves.length} goToMove={goToMove}/>
+            </div>
         </div>
     );
 }

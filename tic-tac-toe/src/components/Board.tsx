@@ -9,6 +9,7 @@ interface BoardProps {
     setNextPlayer: (nextPlayer: string) => void;
     checkWinner: () => void;
     finished: boolean;
+    addMove: () => void;
 }
 
 function Board(props: BoardProps): ReactElement {
@@ -23,6 +24,7 @@ function Board(props: BoardProps): ReactElement {
                     nextPlayer={props.nextPlayer}
                     checkWinner={props.checkWinner}
                     finished={props.finished}
+                    addMove={props.addMove}
                 />
             )
         }

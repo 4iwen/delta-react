@@ -8,6 +8,7 @@ interface CellProps {
     setNextPlayer: (nextPlayer: string) => void;
     checkWinner: () => void;
     finished: boolean;
+    addMove: () => void;
 }
 
 function Cell(props: CellProps): ReactElement {
@@ -16,6 +17,7 @@ function Cell(props: CellProps): ReactElement {
             props.setCell(props.index);
             props.setNextPlayer(props.nextPlayer === "X" ? "O" : "X");
             props.checkWinner();
+            props.addMove();
         }
     }}><span className={props.value === "X" ? "x" : "o"}>{props.value}</span></div>;
 }
