@@ -1,10 +1,17 @@
+import Temperature from "./Temperature";
 
-function Day() {
+interface DayProps {
+    date: string;
+    temperature: number;
+}
+
+function Day(props: DayProps) {
     return (
-        <div>
-
+        <div className="day">
+            <span>{props.date}</span>
+            <Temperature value={props.temperature} />
         </div>
-    )
+    );
 }
 
 export default Day;

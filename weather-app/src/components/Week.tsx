@@ -1,10 +1,17 @@
+import Day from "./Day";
 
-function Week() {
+interface WeekProps {
+    weatherData: any;
+}
+
+function Week(props: WeekProps) {
     return (
-        <div>
-
+        <div className="week">
+            {props.weatherData.map((day: any) => {
+                return <Day date={day.datetime} temperature={day.temp} />;
+            })}
         </div>
-    )
+    );
 }
 
 export default Week;
